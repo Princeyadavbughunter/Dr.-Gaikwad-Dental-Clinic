@@ -17,7 +17,7 @@ export default function ClinicPhotos({ onBookAppointment }: ClinicPhotosProps) {
               src={`/images/clinic/${img}`}
               alt={`Clinic Photo ${index + 1}`}
               fill
-              className="object-cover"
+              className={index === 2 ? "object-contain" : "object-cover"}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               priority={index <= 2}
             />

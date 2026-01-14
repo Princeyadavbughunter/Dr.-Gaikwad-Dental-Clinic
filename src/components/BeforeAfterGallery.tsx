@@ -5,28 +5,32 @@ interface BeforeAfterGalleryProps {
 }
 
 export default function BeforeAfterGallery({ onBookAppointment }: BeforeAfterGalleryProps) {
-  const images = [
+  const cases = [
     {
-      src: '/img/before-after/ab.jpeg',
-      alt: 'Before and after dental treatment case 1'
+      before: '/img/before-after/nonuse/Before-1.jpg',
+      after: '/img/before-after/nonuse/After-1.jpg',
+      alt: 'Dental treatment case 1'
     },
     {
-      src: '/img/before-after/ff.jpeg',
-      alt: 'Before and after dental treatment case 2'
+      before: '/img/before-after/nonuse/Before-1-1.jpg',
+      after: '/img/before-after/nonuse/After-1-1.jpg',
+      alt: 'Dental treatment case 2'
     },
     {
-      src: '/img/before-after/gif.jpeg',
-      alt: 'Before and after dental treatment case 3'
+      before: '/img/before-after/nonuse/Patient-02-Before.jpg',
+      after: '/img/before-after/nonuse/Patient-02-After.jpg',
+      alt: 'Dental treatment case 3'
     },
     {
-      src: '/img/before-after/jf.jpeg',
-      alt: 'Before and after dental treatment case 4'
+      before: '/img/before-after/nonuse/Patient-Before-01.jpg',
+      after: '/img/before-after/nonuse/Patient-After-01.jpg',
+      alt: 'Dental treatment case 4'
     },
   ];
 
   return (
     <section className="p-4 md:p-8 lg:p-12 bg-orange-50">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-8">
           <div className="text-[#50898f] text-sm md:text-base font-medium mb-2">
@@ -38,15 +42,37 @@ export default function BeforeAfterGallery({ onBookAppointment }: BeforeAfterGal
         </div>
 
         {/* Image Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 w-full mb-12">
-          {images.map((image, index) => (
-            <div key={index} className="relative rounded-lg overflow-hidden shadow-lg bg-gray-100 group hover:shadow-xl transition-shadow duration-300">
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-              />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full mb-12">
+          {cases.map((items, index) => (
+            <div key={index} className="bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="grid grid-cols-2 gap-2 md:gap-4">
+                <div className="space-y-2">
+                  <div className="relative rounded-lg overflow-hidden aspect-[4/3]">
+                    <img
+                      src={items.before}
+                      alt={`Before ${items.alt}`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-2 left-2 bg-black/50 text-white text-xs px-2 py-1 rounded">
+                      Before
+                    </div>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="relative rounded-lg overflow-hidden aspect-[4/3]">
+                    <img
+                      src={items.after}
+                      alt={`After ${items.alt}`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-2 left-2 bg-brandBlue text-white text-xs px-2 py-1 rounded">
+                      After
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
         </div>
